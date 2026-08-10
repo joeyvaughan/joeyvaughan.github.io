@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Joey Vaughan -- Baseball Analytics </title>
-<meta name="description" content="Portfolio of [[ YOUR NAME ]], analyst targeting sports analytics roles in front offices, leagues, and sports data companies.">
-<meta property="og:title" content="[[ YOUR NAME ]] — Sports Analytics">
+<title>Joey Vaughan — Baseball Strategy &amp; Information</title>
+<meta name="description" content="Joey Vaughan — graduate baseball analyst at Wake Forest, formerly Baseball Strategy and Information with the Los Angeles Dodgers.">
+<meta property="og:title" content="Joey Vaughan — Baseball Strategy &amp; Information">
 <meta property="og:description" content="Graduate baseball analyst. Selected work, resume, and market perspective.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F1A24'/%3E%3Cpath d='M6 22h4v4H6zm7-8h4v12h-4zm7-6h4v18h-4z' fill='%23E7A93B'/%3E%3C/svg%3E">
@@ -377,6 +377,35 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
 .js .reveal.in{opacity:1;transform:none}
 
 /* ============================================================
+   HERO PORTRAIT
+   ============================================================ */
+.hero__grid{
+  display:grid;
+  grid-template-columns:1.5fr .85fr;
+  gap:clamp(2rem,5vw,4rem);
+  align-items:end;
+}
+.portrait{
+  position:relative;
+  align-self:end;
+  margin-bottom:clamp(1rem,3vw,2rem);
+}
+.portrait img{
+  width:100%;
+  border:1px solid var(--line-d);
+  filter:saturate(.92) contrast(1.02);
+}
+.portrait::before{
+  /* amber hairline, offset — the one flourish */
+  content:"";position:absolute;
+  inset:auto -10px -10px auto;
+  width:62%;height:62%;
+  border-right:2px solid var(--lamp);
+  border-bottom:2px solid var(--lamp);
+  pointer-events:none;
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width:900px){
@@ -385,6 +414,11 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
   .resume{grid-template-columns:1fr;gap:1.2rem}
   .resume__rail{margin-top:1.8rem}
   .resume__block + .resume__rail{margin-top:1.8rem}
+}
+@media (max-width:900px){
+  .hero__grid{grid-template-columns:1fr;gap:2rem}
+  .portrait{max-width:230px;margin-bottom:0;order:-1}
+  .portrait::before{inset:auto -8px -8px auto}
 }
 @media (max-width:760px){
   .nav__links{display:none}
@@ -445,6 +479,8 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
 <!-- ========================= HERO ========================= -->
 <header class="hero" id="top">
   <div class="wrap hero__in">
+    <div class="hero__grid">
+    <div>
     <p class="eyebrow">Baseball Strategy &amp; Information</p>
     <h1>Joey Vaughan</h1>
     <p class="lede">
@@ -456,6 +492,11 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
     <div class="hero__cta">
       <a class="btn" href="#work"><span>See the work</span></a>
       <a class="btn btn--ghost" href="#intro"><span>Watch the intro</span></a>
+    </div>
+    </div>
+    <figure class="portrait">
+      <img src="assets/joey-vaughan.jpg" alt="Joey Vaughan" width="900" height="1134">
+    </figure>
     </div>
     <dl class="statline">
       <div><dt>Currently</dt><dd>Wake Forest Baseball</dd></div>
