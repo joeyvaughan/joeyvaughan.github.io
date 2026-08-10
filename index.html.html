@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[[ YOUR NAME ]] — Sports Analytics</title>
+<meta name="description" content="Portfolio of [[ YOUR NAME ]], analyst targeting sports analytics roles in front offices, leagues, and sports data companies.">
+<meta property="og:title" content="[[ YOUR NAME ]] — Sports Analytics">
+<meta property="og:description" content="Graduate baseball analyst. Selected work, resume, and market perspective.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F1A24'/%3E%3Cpath d='M6 22h4v4H6zm7-8h4v12h-4zm7-6h4v18h-4z' fill='%23E7A93B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62.5..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,300..600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --night:#0F1A24;
+  --night-2:#17242F;
+  --chalk:#F1F0EA;
+  --chalk-2:#E5E4DB;
+  --ink:#141C22;
+  --mute-d:#93A6B3;
+  --mute-l:#5B6A72;
+  --lamp:#E7A93B;
+  --turf:#2F7F63;
+  --line-d:rgba(241,240,234,.16);
+  --line-l:rgba(20,28,34,.14);
+
+  --display:'Archivo',system-ui,sans-serif;
+  --body:'Source Serif 4',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+
+  --wrap:min(1080px,90vw);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--chalk);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:1.06rem;
+  line-height:1.65;
+  font-optical-sizing:auto;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+:focus-visible{outline:2.5px solid var(--lamp);outline-offset:3px}
+
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--lamp);color:var(--night);
+  padding:.7rem 1.1rem;font-family:var(--mono);font-size:.8rem;
+}
+.skip:focus{left:0}
+
+/* ============================================================
+   PRIMITIVES
+   ============================================================ */
+.wrap{width:var(--wrap);margin-inline:auto}
+
+.band{padding:clamp(3.75rem,8.5vw,7rem) 0}
+.band--light{background:var(--chalk);color:var(--ink)}
+.band--paper{background:var(--chalk-2);color:var(--ink)}
+.band--dark{background:var(--night);color:var(--chalk)}
+
+.eyebrow{
+  font-family:var(--mono);
+  font-size:.7rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  font-weight:500;
+  margin:0 0 1.4rem;
+  color:var(--mute-l);
+}
+.band--dark .eyebrow{color:var(--lamp)}
+
+h1,h2,h3{
+  font-family:var(--display);
+  font-weight:700;
+  font-stretch:118%;
+  line-height:1.02;
+  letter-spacing:-.015em;
+  margin:0;
+  text-wrap:balance;
+}
+h1{font-size:clamp(2.7rem,8.5vw,5.4rem);line-height:.94;letter-spacing:-.03em}
+h2{font-size:clamp(1.85rem,4.2vw,2.9rem);margin-bottom:1.5rem}
+h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em}
+
+.lede{
+  font-size:clamp(1.1rem,1.9vw,1.3rem);
+  line-height:1.6;
+  max-width:56ch;
+  font-weight:380;
+}
+.prose{max-width:62ch}
+.prose p{margin:0 0 1.1rem}
+.prose p:last-child{margin-bottom:0}
+
+.tag{
+  display:inline-block;
+  font-family:var(--mono);
+  font-size:.68rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  padding:.35rem .6rem;
+  border:1px solid var(--line-l);
+  color:var(--mute-l);
+}
+.band--dark .tag{border-color:var(--line-d);color:var(--mute-d)}
+
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:var(--mono);font-size:.78rem;font-weight:500;
+  letter-spacing:.09em;text-transform:uppercase;
+  text-decoration:none;
+  padding:.85rem 1.35rem;
+  background:var(--lamp);color:var(--night);
+  border:none;
+  transition:transform .15s ease,filter .15s ease;
+}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn--ghost{background:transparent;color:inherit;border:1px solid currentColor}
+.btn--ghost:hover{background:currentColor;filter:none}
+.btn--ghost:hover span{mix-blend-mode:difference}
+
+/* ============================================================
+   SIGNATURE: THE STAT LINE
+   ============================================================ */
+.statline{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  margin:0;
+  border-top:1px solid var(--line-d);
+  border-bottom:1px solid var(--line-d);
+}
+.band--light .statline,.band--paper .statline{border-color:var(--line-l)}
+.statline > div{
+  padding:1.15rem 1.1rem 1.15rem 0;
+  border-right:1px solid var(--line-d);
+}
+.band--light .statline > div,.band--paper .statline > div{border-color:var(--line-l)}
+.statline > div:last-child{border-right:none}
+.statline > div:not(:first-child){padding-left:1.1rem}
+.statline dt{
+  font-family:var(--mono);
+  font-size:.62rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--mute-d);
+  margin-bottom:.45rem;
+}
+.band--light .statline dt,.band--paper .statline dt{color:var(--mute-l)}
+.statline dd{
+  margin:0;
+  font-family:var(--display);
+  font-stretch:105%;
+  font-weight:600;
+  font-size:clamp(1.05rem,2vw,1.4rem);
+  font-variant-numeric:tabular-nums;
+  line-height:1.15;
+}
+
+.statline--sm{margin-top:1.6rem;grid-template-columns:repeat(3,1fr)}
+.statline--sm dd{font-size:1rem}
+.statline--sm > div{padding-block:.85rem}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(15,26,36,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-d);
+  color:var(--chalk);
+}
+.nav__in{
+  width:var(--wrap);margin-inline:auto;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1.5rem;padding:.85rem 0;
+}
+.nav__name{
+  font-family:var(--display);font-weight:700;font-stretch:112%;
+  font-size:.95rem;letter-spacing:.01em;text-decoration:none;
+}
+.nav__links{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0}
+.nav__links a{
+  font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;
+  text-transform:uppercase;text-decoration:none;color:var(--mute-d);
+  padding-block:.3rem;
+  border-bottom:1px solid transparent;
+  transition:color .15s ease,border-color .15s ease;
+}
+.nav__links a:hover{color:var(--chalk);border-bottom-color:var(--lamp)}
+.nav .btn{padding:.6rem 1rem;font-size:.72rem}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  background:var(--night);color:var(--chalk);
+  padding:clamp(3.5rem,9vw,7rem) 0 0;
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  /* faint chalked grid — the video-room whiteboard */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(var(--line-d) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--line-d) 1px,transparent 1px);
+  background-size:64px 64px;
+  opacity:.5;
+  mask-image:radial-gradient(120% 90% at 78% 0%,#000 0%,transparent 68%);
+  -webkit-mask-image:radial-gradient(120% 90% at 78% 0%,#000 0%,transparent 68%);
+}
+.hero__in{position:relative;z-index:1}
+.hero h1{margin-bottom:1.7rem}
+.hero .lede{color:#D3D9DE;margin:0 0 2.2rem}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:clamp(2.8rem,6vw,4.5rem)}
+.hero .statline{border-bottom:none;padding-bottom:clamp(1rem,3vw,2rem)}
+
+/* ============================================================
+   PIVOT MAP  (Targeting Track requirement)
+   ============================================================ */
+.map{border-top:1px solid var(--line-l);margin-top:2.5rem}
+.map__row{
+  display:grid;
+  grid-template-columns:1fr 3.5rem 1fr;
+  align-items:center;
+  gap:.5rem;
+  padding:1.5rem 0;
+  border-bottom:1px solid var(--line-l);
+}
+.map__from{font-weight:400}
+.map__to{font-weight:600}
+.map__from strong,.map__to strong{
+  display:block;
+  font-family:var(--mono);font-size:.63rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--mute-l);margin-bottom:.4rem;
+}
+.map__arrow{
+  font-family:var(--mono);color:var(--lamp);
+  text-align:center;font-size:1.1rem;
+}
+.map__arrow::before{content:"\2192"}
+
+/* ============================================================
+   VIDEO
+   ============================================================ */
+.video{
+  position:relative;
+  aspect-ratio:16/9;
+  background:var(--night-2);
+  border:1px solid var(--line-d);
+  margin-top:2.5rem;
+}
+.video iframe,.video video{
+  position:absolute;inset:0;width:100%;height:100%;border:0;
+}
+.video__placeholder{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.8rem;text-align:center;padding:1.5rem;
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;
+  color:var(--mute-d);
+}
+.video__placeholder span{font-size:1.7rem;color:var(--lamp)}
+.video__note{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;
+  color:var(--mute-d);margin-top:1rem;
+}
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+.projects{display:grid;gap:2rem;margin-top:2.75rem}
+.project{
+  background:var(--chalk);
+  border:1px solid var(--line-l);
+  border-top:3px solid var(--ink);
+  padding:clamp(1.5rem,3.5vw,2.4rem);
+}
+.project__head{
+  display:flex;flex-wrap:wrap;align-items:baseline;
+  justify-content:space-between;gap:.75rem;margin-bottom:1.4rem;
+}
+.project h3{margin-bottom:.35rem}
+.project__body{display:grid;gap:1.4rem;grid-template-columns:repeat(3,1fr)}
+.project__body h4{
+  font-family:var(--mono);font-size:.63rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--mute-l);margin:0 0 .5rem;
+}
+.project__body p{margin:0;font-size:.98rem;line-height:1.6}
+.project__links{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:1.6rem}
+.project__links a{
+  font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;
+  text-transform:uppercase;text-decoration:none;
+  border-bottom:1px solid var(--lamp);padding-bottom:.15rem;
+}
+.project__links a:hover{color:var(--turf);border-bottom-color:var(--turf)}
+
+/* ============================================================
+   MARKET NOTES  (commercial awareness)
+   ============================================================ */
+.notes{display:grid;gap:1.75rem;grid-template-columns:repeat(3,1fr);margin-top:2.75rem}
+.note{border-top:1px solid var(--line-d);padding-top:1.4rem}
+.note h3{font-size:1.15rem;margin-bottom:.7rem;color:var(--lamp)}
+.note p{margin:0 0 .9rem;font-size:.97rem;color:#D3D9DE}
+.note cite{
+  display:block;font-style:normal;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;
+  color:var(--mute-d);
+}
+.note cite a{color:inherit}
+
+/* ============================================================
+   RESUME
+   ============================================================ */
+.resume{
+  display:grid;grid-template-columns:1fr 2.6fr;gap:2.5rem;
+  margin-top:2.75rem;
+}
+.resume__rail{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--mute-l);
+  border-top:1px solid var(--ink);padding-top:.9rem;
+}
+.resume__block{border-top:1px solid var(--line-l);padding-top:.9rem}
+.resume__block + .resume__rail,.resume__block + .resume__block{margin-top:2.2rem}
+.entry{margin-bottom:1.6rem}
+.entry:last-child{margin-bottom:0}
+.entry__head{
+  display:flex;flex-wrap:wrap;justify-content:space-between;
+  align-items:baseline;gap:.5rem;
+}
+.entry__role{font-family:var(--display);font-weight:600;font-stretch:108%;font-size:1.08rem}
+.entry__meta{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;
+  color:var(--mute-l);font-variant-numeric:tabular-nums;
+}
+.entry ul{margin:.55rem 0 0;padding-left:1.1rem}
+.entry li{margin-bottom:.35rem;font-size:.97rem}
+.skills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.3rem}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot{background:var(--night);color:var(--chalk);padding:clamp(3rem,6vw,4.5rem) 0 2.5rem}
+.foot h2{margin-bottom:1.2rem}
+.foot__links{display:flex;flex-wrap:wrap;gap:1.5rem;margin:1.8rem 0 3rem;padding:0;list-style:none}
+.foot__links a{
+  font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;
+  text-decoration:none;border-bottom:1px solid var(--lamp);padding-bottom:.2rem;
+}
+.foot__links a:hover{color:var(--lamp)}
+.colophon{
+  border-top:1px solid var(--line-d);padding-top:1.4rem;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;
+  color:var(--mute-d);display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;
+  justify-content:space-between;
+}
+
+/* ============================================================
+   REVEAL (progressive enhancement — only active when JS runs)
+   ============================================================ */
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:900px){
+  .project__body{grid-template-columns:1fr;gap:1.1rem}
+  .notes{grid-template-columns:1fr;gap:1.5rem}
+  .resume{grid-template-columns:1fr;gap:1.2rem}
+  .resume__rail{margin-top:1.8rem}
+  .resume__block + .resume__rail{margin-top:1.8rem}
+}
+@media (max-width:760px){
+  .nav__links{display:none}
+  .statline{grid-template-columns:repeat(2,1fr)}
+  .statline > div{border-right:1px solid var(--line-d);padding-left:0}
+  .band--light .statline > div,.band--paper .statline > div{border-color:var(--line-l)}
+  .statline > div:nth-child(2n){border-right:none;padding-left:1.1rem}
+  .statline > div:nth-child(n+3){border-top:1px solid var(--line-d)}
+  .band--light .statline > div:nth-child(n+3),
+  .band--paper .statline > div:nth-child(n+3){border-top-color:var(--line-l)}
+  .statline--sm{grid-template-columns:1fr}
+  .statline--sm > div{border-right:none;padding-left:0;border-top:1px solid var(--line-l)}
+  .statline--sm > div:first-child{border-top:none}
+  .map__row{grid-template-columns:1fr;gap:.4rem;padding:1.25rem 0}
+  .map__arrow{text-align:left}
+  .map__arrow::before{content:"\2193"}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+@media print{
+  .nav,.video,.hero::after{display:none}
+  body{background:#fff;color:#000;font-size:11pt}
+  .band{padding:1rem 0}
+  .band--dark,.hero,.foot{background:#fff;color:#000}
+}
+</style>
+</head>
+<body>
+
+<!--
+  ============================================================
+  Anything still wrapped in [[ double brackets ]] needs your
+  input. Search this file for  [[  to find them all.
+  ============================================================
+-->
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav__in">
+    <a class="nav__name" href="#top">Joey Vaughan</a>
+    <ul class="nav__links">
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#intro">Intro</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#market">Market</a></li>
+      <li><a href="#resume">Resume</a></li>
+    </ul>
+    <a class="btn" href="assets/resume.pdf" download><span>Resume PDF</span></a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ========================= HERO ========================= -->
+<header class="hero" id="top">
+  <div class="wrap hero__in">
+    <p class="eyebrow">Baseball Strategy &amp; Information</p>
+    <h1>Joey Vaughan</h1>
+    <p class="lede">
+      I model baseball data, and I have spent four seasons collecting it by hand &mdash;
+      Trackman units, Edgertronic cameras, Rapsodo, KinaTrax. Currently a graduate
+      analyst with Wake Forest Baseball and an MSBA candidate in sports analytics,
+      after a summer in Baseball Strategy and Information with the Los Angeles Dodgers.
+    </p>
+    <div class="hero__cta">
+      <a class="btn" href="#work"><span>See the work</span></a>
+      <a class="btn btn--ghost" href="#intro"><span>Watch the intro</span></a>
+    </div>
+    <dl class="statline">
+      <div><dt>Currently</dt><dd>Wake Forest Baseball</dd></div>
+      <div><dt>Front office</dt><dd>LA Dodgers, 2025</dd></div>
+      <div><dt>Stack</dt><dd>R &middot; SQL &middot; Python</dd></div>
+      <div><dt>MSBA</dt><dd>Sports Analytics, 2027</dd></div>
+    </dl>
+  </div>
+</header>
+
+<!-- ========================= APPROACH / TRANSFERABLE SKILLS ========================= -->
+<section class="band band--light" id="approach">
+  <div class="wrap reveal">
+    <p class="eyebrow">How I work</p>
+    <h2>Most analysts see the data after it exists. I have been on both ends of it.</h2>
+    <div class="prose">
+      <p>
+        I have fed pitching machines and caught bullpens, and I have written the SQL that
+        turns a season of those bullpens into a scouting report. That combination is the
+        thing I lead with, because the failure mode in this field is rarely the modeling
+        &mdash; it is an analyst who does not know how the number was captured, or who
+        cannot get a coaching staff to act on it once it is built.
+      </p>
+      <p>
+        The four capabilities below come from outside a strict analytics job description &mdash;
+        from print deadlines, equity valuation, historical research, and a field tarp. Each
+        one transfers, and each one transfers twice: into a baseball front office, and into
+        the financial analysis work I am pursuing in parallel.
+      </p>
+    </div>
+
+    <div class="map">
+      <div class="map__row">
+        <div class="map__from"><strong>On the field</strong>Operated Trackman, Edgertronic, Rapsodo, KinaTrax, and BATS across four seasons at Notre Dame, Wake Forest, and Tacoma</div>
+        <div class="map__arrow" aria-hidden="true"></div>
+        <div class="map__to"><strong>In the front office</strong>Knowing how a measurement is generated, and where it degrades, before it ever reaches a model</div>
+      </div>
+      <div class="map__row">
+        <div class="map__from"><strong>In print</strong>Wrote game notes, player biographies, and interviews on deadline for the Tacoma Rainiers and <em>The Observer</em></div>
+        <div class="map__arrow" aria-hidden="true"></div>
+        <div class="map__to"><strong>In the front office</strong>Compressing a finding into something a coach or GM can act on in one read, not one meeting</div>
+      </div>
+      <div class="map__row">
+        <div class="map__from"><strong>In finance</strong>Equity and portfolio valuation through a finance minor and Notre Dame&rsquo;s Undergraduate Investment Club</div>
+        <div class="map__arrow" aria-hidden="true"></div>
+        <div class="map__to"><strong>In the front office</strong>Valuing a long-horizon asset under uncertainty &mdash; the arithmetic behind player acquisition is the arithmetic behind a position</div>
+      </div>
+      <div class="map__row">
+        <div class="map__from"><strong>In the archive</strong>A history degree: building an argument from incomplete and conflicting evidence, then defending it</div>
+        <div class="map__arrow" aria-hidden="true"></div>
+        <div class="map__to"><strong>In the front office</strong>Making a defensible recommendation on a small sample, and being honest about what it cannot support</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= VIDEO ========================= -->
+<section class="band band--dark" id="intro">
+  <div class="wrap reveal">
+    <p class="eyebrow">Introduction</p>
+    <h2>Ninety seconds, in my own voice</h2>
+    <div class="prose">
+      <p style="color:#D3D9DE">
+        Who I am, how I got from the bullpen to the front office, and the two markets I
+        am pointing this skill set at.
+      </p>
+    </div>
+
+    <div class="video">
+      <!--
+        REPLACE the placeholder div below with your embed.
+
+        YouTube (set the video to UNLISTED, never Private):
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                title="Video introduction" allowfullscreen
+                allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+      -->
+      <div class="video__placeholder">
+        <span>&#9654;</span>
+        Video embed goes here
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= WORK ========================= -->
+<section class="band band--paper" id="work">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Selected work</p>
+      <h2>Three projects, and what came of them</h2>
+      <div class="prose">
+        <p>
+          One clustering study, one predictive modeling study, and the standing analytical
+          work I do for a Division I program. Together they cover the loop I want to own:
+          capture the data, find the structure in it, and hand a coaching staff something
+          they can use before the next series.
+        </p>
+      </div>
+    </div>
+
+    <div class="projects">
+
+      <article class="project reveal">
+        <div class="project__head">
+          <div>
+            <h3>What separates an elite curveball</h3>
+            <p class="entry__meta">2024 MLB season &nbsp;&middot;&nbsp; R &nbsp;&middot;&nbsp; k-means clustering</p>
+          </div>
+          <span class="tag">Clustering</span>
+        </div>
+        <div class="project__body">
+          <div>
+            <h4>Context</h4>
+            <p>&ldquo;Curveball&rdquo; is one label covering pitches that behave nothing alike. If the groupings are real, then evaluating a curveball against the league average curveball is comparing a pitch to a category that does not exist.</p>
+          </div>
+          <div>
+            <h4>My role</h4>
+            <p>Sole analyst. Selected nine pitch characteristics, scaled and clustered the 2024 season into eight groups, and examined how pitcher handedness cut across them. Written up in full.</p>
+          </div>
+          <div>
+            <h4>Outcome</h4>
+            <p>[[ The finding, in one or two sentences. What actually distinguished the elite clusters from the rest, and what a pitching coach should do differently knowing it? This is the sentence a front office reader will judge the project on. ]]</p>
+          </div>
+        </div>
+        <dl class="statline statline--sm">
+          <div><dt>Season</dt><dd>2024</dd></div>
+          <div><dt>Features</dt><dd>9</dd></div>
+          <div><dt>Clusters</dt><dd>8</dd></div>
+        </dl>
+        <div class="project__links">
+          <a href="https://github.com/joeyvaughan/K-Means-Exploration">Code (R Markdown)</a>
+          <a href="https://github.com/joeyvaughan/K-Means-Exploration/blob/main/Curveball%20Investigation%20Write%20Up.pdf">Full write-up (PDF)</a>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project__head">
+          <div>
+            <h3>Predicting NFL spreads and money lines</h3>
+            <p class="entry__meta">2010&ndash;2025 play-by-play &nbsp;&middot;&nbsp; four model families compared</p>
+          </div>
+          <span class="tag">Predictive modeling</span>
+        </div>
+        <div class="project__body">
+          <div>
+            <h4>Context</h4>
+            <p>Betting markets are the hardest available benchmark for a forecasting model: the line already contains the crowd&rsquo;s information, so beating it means finding something the market has not priced.</p>
+          </div>
+          <div>
+            <h4>My role</h4>
+            <p>Sole analyst. Built and compared linear regression, lasso, random forest, and XGBoost against fifteen seasons of play-by-play and schedule data, then selected XGBoost on out-of-sample performance.</p>
+          </div>
+          <div>
+            <h4>Outcome</h4>
+            <p>The selected model picked game outcomes and spreads correctly roughly 75% of the time. [[ Add one line specifying what that figure was measured on &mdash; which seasons were held out, and whether the rate is against the spread or on the money line. ]]</p>
+          </div>
+        </div>
+        <dl class="statline statline--sm">
+          <div><dt>Seasons</dt><dd>2010&ndash;2025</dd></div>
+          <div><dt>Models compared</dt><dd>4</dd></div>
+          <div><dt>Hit rate</dt><dd>~75%</dd></div>
+        </dl>
+        <div class="project__links">
+          <a href="https://github.com/joeyvaughan/Modeling-Exploration">Code &amp; output</a>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project__head">
+          <div>
+            <h3>Scouting and player development, Wake Forest Baseball</h3>
+            <p class="entry__meta">July 2026 &ndash; present &nbsp;&middot;&nbsp; SQL, R</p>
+          </div>
+          <span class="tag">Ongoing</span>
+        </div>
+        <div class="project__body">
+          <div>
+            <h4>Context</h4>
+            <p>A Division I program generating Trackman, Edgertronic, KinaTrax, and BATS data every day, needing it turned into scouting reports, recruiting evaluations, and development plans on a weekly cycle.</p>
+          </div>
+          <div>
+            <h4>My role</h4>
+            <p>Collect data across the technology stack and build player performance and forecasting models from it, then prepare the reports that reach coaches and recruiting staff.</p>
+          </div>
+          <div>
+            <h4>Outcome</h4>
+            <p>[[ One shareable example &mdash; a report format you introduced, a workflow you sped up, a recruiting or development decision your analysis informed. Keep it general enough to respect what the program considers internal. ]]</p>
+          </div>
+        </div>
+        <dl class="statline statline--sm">
+          <div><dt>[[ Metric ]]</dt><dd>[[ Value ]]</dd></div>
+          <div><dt>[[ Metric ]]</dt><dd>[[ Value ]]</dd></div>
+          <div><dt>[[ Metric ]]</dt><dd>[[ Value ]]</dd></div>
+        </dl>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================= MARKET ========================= -->
+<section class="band band--dark" id="market">
+  <div class="wrap reveal">
+    <p class="eyebrow">Reading the market</p>
+    <h2>Where baseball analytics is going</h2>
+    <div class="prose">
+      <p style="color:#D3D9DE">
+        [[ Two or three sentences staking out a position on where this industry is heading
+        and what it means for how clubs staff analytics departments. Write it in your own
+        voice, from what you have seen inside two organizations. Every claim below needs a
+        real, checkable source. ]]
+      </p>
+    </div>
+
+    <div class="notes">
+      <div class="note">
+        <h3>[[ Trend headline ]]</h3>
+        <p>[[ A shift in what data clubs can capture &mdash; and the staffing implication. You have hands on this hardware, so this is the note you can write with the most authority. ]]</p>
+        <cite>[[ Source, publication, date ]]</cite>
+      </div>
+      <div class="note">
+        <h3>[[ Trend headline ]]</h3>
+        <p>[[ A business problem clubs have not solved. Where would you attack it? ]]</p>
+        <cite>[[ Source, publication, date ]]</cite>
+      </div>
+      <div class="note">
+        <h3>[[ Trend headline ]]</h3>
+        <p>[[ A change in the competitive landscape: rules, labor, new buyers of baseball data, or the college-to-pro pipeline. ]]</p>
+        <cite>[[ Source, publication, date ]]</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= RESUME ========================= -->
+<section class="band band--light" id="resume">
+  <div class="wrap reveal">
+    <p class="eyebrow">Resume</p>
+    <h2>The short version</h2>
+    <p><a class="btn" href="assets/resume.pdf" download><span>Download PDF</span></a></p>
+
+    <div class="resume">
+      <div class="resume__rail">Experience</div>
+      <div class="resume__block">
+        <div class="entry">
+          <div class="entry__head">
+            <span class="entry__role">Graduate Baseball Analyst &nbsp;&middot;&nbsp; Wake Forest Baseball</span>
+            <span class="entry__meta">Jul 2026 &ndash; Present</span>
+          </div>
+          <ul>
+            <li>Collect data via Trackman, Edgertronic cameras, BATS, and KinaTrax, and build it into player performance and future performance forecasting models.</li>
+            <li>Analyze statistics in SQL and R to prepare scouting reports, support recruiting evaluations, and inform player development.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry__head">
+            <span class="entry__role">Baseball Strategy &amp; Information Intern &nbsp;&middot;&nbsp; Los Angeles Dodgers</span>
+            <span class="entry__meta">May &ndash; Aug 2025</span>
+          </div>
+          <ul>
+            <li>Completed scouting reports and ad-hoc projects in SQL and R for coaching staff and front office personnel.</li>
+            <li>Trained Trajekt to prepare hitters for opposing pitchers, and recorded bullpens and simulated games via Trackman.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry__head">
+            <span class="entry__role">Varsity Baseball Student Manager &nbsp;&middot;&nbsp; Notre Dame Baseball</span>
+            <span class="entry__meta">Aug 2023 &ndash; May 2026</span>
+          </div>
+          <ul>
+            <li>Operated Rapsodo, Trackman, Edgertronic cameras, and BATS in practice and games to capture data for player evaluation modeling and report generation.</li>
+            <li>Organized practices, coordinated equipment, fed pitching machines, and caught bullpens.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry__head">
+            <span class="entry__role">Public Relations Intern &nbsp;&middot;&nbsp; Tacoma Rainiers (Mariners AAA)</span>
+            <span class="entry__meta">Summers 2019 &ndash; 2024</span>
+          </div>
+          <ul>
+            <li>Wrote game summaries, game notes, and player biographies, conducted player interviews, and analyzed statistics for print media.</li>
+            <li>Also served as bullpen catcher (2022), warming up pitchers before and during games.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume__rail">Education</div>
+      <div class="resume__block">
+        <div class="entry">
+          <div class="entry__head">
+            <span class="entry__role">M.S. Business Analytics &nbsp;&middot;&nbsp; Wake Forest University</span>
+            <span class="entry__meta">May 2027</span>
+          </div>
+          <ul>
+            <li>Sports Analytics concentration.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry__head">
+            <span class="entry__role">B.A. Business Analytics &amp; History &nbsp;&middot;&nbsp; University of Notre Dame</span>
+            <span class="entry__meta">May 2026</span>
+          </div>
+          <ul>
+            <li>Summa Cum Laude. Beta Gamma Sigma, Scott Scholar, O&rsquo;Hara Scholar, Monogram Club.</li>
+            <li>Minors in Finance; Sport, Media, and Culture; Business and the Common Good; Business Honors Program.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume__rail">Technical</div>
+      <div class="resume__block">
+        <div class="entry">
+          <div class="entry__head"><span class="entry__role">Languages &amp; visualization</span></div>
+          <div class="skills">
+            <span class="tag">R</span><span class="tag">SQL</span><span class="tag">Python</span>
+            <span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">Excel</span>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry__head"><span class="entry__role">Modeling</span></div>
+          <div class="skills">
+            <span class="tag">XGBoost</span><span class="tag">Random forest</span><span class="tag">Lasso</span>
+            <span class="tag">Logistic regression</span><span class="tag">Time series</span><span class="tag">Clustering</span>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry__head"><span class="entry__role">Baseball technology</span></div>
+          <div class="skills">
+            <span class="tag">Trackman</span><span class="tag">Trajekt</span><span class="tag">Edgertronic</span>
+            <span class="tag">KinaTrax</span><span class="tag">Rapsodo</span><span class="tag">BATS</span>
+            <span class="tag">Synergy</span><span class="tag">TruMedia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="foot">
+  <div class="wrap">
+    <h2>Let&rsquo;s talk.</h2>
+    <p class="lede" style="color:#D3D9DE">
+      I am looking for roles in baseball operations and sports analytics, and in
+      corporate finance and strategic financial analysis. Different industries, same
+      work: valuing an asset under uncertainty and making the case to the people who
+      decide. If you are hiring for either, I would like to hear about it.
+    </p>
+    <ul class="foot__links">
+      <li><a href="mailto:vaugjp26@wfu.edu">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/joey-vaughan/">LinkedIn</a></li>
+      <li><a href="https://github.com/joeyvaughan">GitHub</a></li>
+      <li><a href="assets/resume.pdf" download>Resume</a></li>
+    </ul>
+    <div class="colophon">
+      <span>&copy; 2026 Joey Vaughan</span>
+      <span>Hand-coded &amp; deployed on GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  items.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
