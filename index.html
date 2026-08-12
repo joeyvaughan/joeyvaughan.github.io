@@ -136,7 +136,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
    ============================================================ */
 .statline{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:1.05fr 1.35fr .85fr .95fr;
   gap:0;
   margin:0;
   border-top:1px solid var(--line-d);
@@ -181,17 +181,20 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
 }
 .band--light .statline__sub,.band--paper .statline__sub{color:var(--mute-l)}
 .dd--stack{
-  display:flex;flex-direction:column;gap:.3rem;
-  font-size:.95rem;line-height:1.25;
+  display:flex;flex-direction:column;gap:.18rem;
+  font-family:var(--mono);
+  font-weight:400;
+  font-size:.8rem;
+  letter-spacing:.01em;
+  line-height:1.35;
+  white-space:nowrap;
 }
 .dd--stack em{
   font-style:normal;
-  font-family:var(--mono);
   font-size:.72rem;
-  font-weight:400;
-  letter-spacing:.04em;
   color:var(--mute-d);
-  margin-left:.3rem;
+  opacity:.75;
+  margin-left:.35rem;
 }
 .band--light .dd--stack em,.band--paper .dd--stack em{color:var(--mute-l)}
 .statline > div{display:flex;flex-direction:column}
@@ -488,6 +491,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
   .nav__actions .btn--icon span:last-child{display:none}
   .nav__actions .btn--icon{padding:.6rem .75rem}
   .statline{grid-template-columns:repeat(2,1fr)}
+  .dd--stack{white-space:normal;font-size:.76rem}
   .statline > div{border-right:1px solid var(--line-d);padding-left:0}
   .band--light .statline > div,.band--paper .statline > div{border-color:var(--line-l)}
   .statline > div:nth-child(2n){border-right:none;padding-left:1.1rem}
@@ -589,20 +593,25 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
 <section class="band band--light" id="approach">
   <div class="wrap reveal">
     <p class="eyebrow">How I work</p>
-    <h2>Most analysts see the data after it exists. I have been on both ends of it.</h2>
+    <h2>Experienced with the full data lifecycle: from collection to communication</h2>
     <div class="prose">
       <p>
-        I have fed pitching machines and caught bullpens, and I have written the SQL that
-        turns a season of those bullpens into a scouting report. That combination is the
-        thing I lead with, because the failure mode in this field is rarely the modeling
-        &mdash; it is an analyst who does not know how the number was captured, or who
-        cannot get a coaching staff to act on it once it is built.
+        Many analysts are skilled with code, able to manipulate and transform data to glean
+        valuable insights. I enjoy deriving meaning from numbers too &mdash; but that is
+        where the work starts, not where it ends. Across the collegiate and professional
+        ranks of baseball I have hands-on experience with Trackman, Rapsodo, Edgertronic,
+        BATS, Synergy, and more, having collected that data firsthand.
       </p>
       <p>
-        The four capabilities below come from outside a strict analytics job description &mdash;
-        from print deadlines, equity valuation, historical research, and a field tarp. Each
-        one transfers, and each one transfers twice: into a baseball front office, and into
-        the financial analysis work I am pursuing in parallel.
+        That background has also taught me the game at a high level, which helps me distill
+        the information down to what actually matters. And working closely with coaches and
+        players means I know how to communicate a finding not just to other analysts, but to
+        the people playing the game.
+      </p>
+      <p>
+        That combination &mdash; understanding material in depth and communicating it well
+        &mdash; applies well beyond the field. It transfers to the markets and to other
+        sectors of business, which is where the second half of my background points.
       </p>
     </div>
 
