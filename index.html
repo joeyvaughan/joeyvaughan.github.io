@@ -357,7 +357,13 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
   font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;
   color:var(--mute-d);
 }
-.note cite a{color:inherit}
+.note cite a{color:inherit;border-bottom:1px solid rgba(231,169,59,.45)}
+.note cite a:hover{color:var(--lamp);border-bottom-color:var(--lamp)}
+.note p strong{
+  font-family:var(--mono);font-size:.68rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--lamp);
+  display:block;margin-bottom:.3rem;
+}
 
 /* ============================================================
    RESUME
@@ -387,6 +393,22 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
 .entry ul{margin:.55rem 0 0;padding-left:1.1rem}
 .entry li{margin-bottom:.35rem;font-size:.97rem}
 .skills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.3rem}
+
+/* ============================================================
+   EDUCATION ACCENTS
+   ============================================================ */
+.entry--edu{
+  position:relative;
+  padding-left:1.1rem;
+}
+.entry--edu::before{
+  content:"";position:absolute;left:0;top:.35em;bottom:.2rem;
+  width:3px;
+}
+.edu--wf::before{background:#9E7E38}   /* old gold */
+.edu--nd::before{
+  background:linear-gradient(180deg,#0C2340 0 50%,#C99700 50% 100%);
+}
 
 /* ============================================================
    INLINE PDF VIEWER
@@ -487,7 +509,17 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
 @media (max-width:760px){
   .pdfview{aspect-ratio:auto;height:auto;min-height:0}
   .pdfview object{height:260px}
-  .nav__links{display:none}
+  .nav__in{flex-wrap:wrap;padding-bottom:.35rem;gap:.5rem 1rem}
+  .nav__links{
+    order:3;width:100%;
+    gap:1.1rem;
+    overflow-x:auto;
+    padding-bottom:.5rem;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .nav__links::-webkit-scrollbar{display:none}
+  .nav__links a{white-space:nowrap;font-size:.68rem}
   .nav__actions .btn--icon span:last-child{display:none}
   .nav__actions .btn--icon{padding:.6rem .75rem}
   .statline{grid-template-columns:repeat(2,1fr)}
@@ -535,7 +567,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
     <ul class="nav__links">
       <li><a href="#approach">Approach</a></li>
       <li><a href="#intro">Intro</a></li>
-      <li><a href="#work">Work</a></li>
+      <li><a href="#work">Projects</a></li>
       <li><a href="#market">Market</a></li>
       <li><a href="#resume">Resume</a></li>
     </ul>
@@ -609,7 +641,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
         the people playing the game.
       </p>
       <p>
-        That combination &mdash; understanding material in depth and communicating it well
+        This combination &mdash; understanding material in depth and communicating it well
         &mdash; applies well beyond the field. It transfers to the markets and to other
         sectors of business, which is where the second half of my background points.
       </p>
@@ -674,7 +706,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
   <div class="wrap">
     <div class="reveal">
       <p class="eyebrow">Selected work</p>
-      <h2>Three projects, and what came of them</h2>
+      <h2>Projects: my work in action</h2>
       <div class="prose">
         <p>
           One clustering study, one predictive modeling study, and the standing analytical
@@ -702,17 +734,17 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
           </div>
           <div>
             <h4>My role</h4>
-            <p>Sole analyst. Selected nine pitch characteristics, scaled and clustered the 2024 season into eight groups, and examined how pitcher handedness cut across them. Written up in full.</p>
+            <p>Student analyst, one of three. Helped select the nine clustering features across usage, independent outcomes, and movement relative to each pitcher&rsquo;s fastball, then clustered the season into eight groups and examined how handedness cut across them.</p>
           </div>
           <div>
             <h4>Outcome</h4>
-            <p>[[ The finding, in one or two sentences. What actually distinguished the elite clusters from the rest, and what a pitching coach should do differently knowing it? This is the sentence a front office reader will judge the project on. ]]</p>
+            <p>Two of the eight clusters separated clearly on run value &mdash; one almost entirely left-handed, one almost entirely right-handed. Both led the league in whiff rate, and the biggest divider was <em>horizontal</em> break relative to the fastball, not vertical, which is the opposite of what a pitch that moves downward would suggest. Usage cut against intuition too: the highest-usage cluster threw curveballs 40% of the time and returned middling value.</p>
           </div>
         </div>
         <dl class="statline statline--sm">
-          <div><dt>Season</dt><dd>2024</dd></div>
-          <div><dt>Features</dt><dd>9</dd></div>
-          <div><dt>Clusters</dt><dd>8</dd></div>
+          <div><dt>Top cluster RV/100</dt><dd>0.804</dd></div>
+          <div><dt>Features clustered</dt><dd>9</dd></div>
+          <div><dt>LH break gap</dt><dd>22.7 in</dd></div>
         </dl>
         <div class="project__links">
           <a href="https://github.com/joeyvaughan/K-Means-Exploration">Code (R Markdown)</a>
@@ -792,28 +824,63 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
     <h2>Where baseball analytics is going</h2>
     <div class="prose">
       <p style="color:#D3D9DE">
-        [[ Two or three sentences staking out a position on where this industry is heading
-        and what it means for how clubs staff analytics departments. Write it in your own
-        voice, from what you have seen inside two organizations. Every claim below needs a
-        real, checkable source. ]]
+        Baseball is repricing two things at once. On the field, a rule change is taking value
+        away from a skill clubs spent a decade learning to measure. Off it, a labor negotiation
+        could put a hard ceiling on payroll for the first time in the sport&rsquo;s history. Both
+        land on the same desk &mdash; the group that has to say what a player is worth. That is
+        the desk I want to sit at, and the reason I have built a background in valuation as well
+        as in baseball.
       </p>
     </div>
 
     <div class="notes">
       <div class="note">
-        <h3>[[ Trend headline ]]</h3>
-        <p>[[ A shift in what data clubs can capture &mdash; and the staffing implication. You have hands on this hardware, so this is the note you can write with the most authority. ]]</p>
-        <cite>[[ Source, publication, date ]]</cite>
+        <h3>The strike zone became a measurement</h3>
+        <p>
+          The ABS Challenge System is in place for the full 2026 season &mdash; spring training,
+          regular season, and postseason. In spring testing catchers won 56% of their challenges,
+          the highest of any position, which is precisely the group whose framing value the system
+          puts at risk. A decade of pitch-framing metrics now describes a smaller edge than it did.
+        </p>
+        <p>
+          <strong>Where I fit:</strong> I have collected tracking data by hand across four seasons.
+          When a measurement system changes, the first question is what the new data can and cannot
+          support &mdash; and that question is answered by people who know how the number is captured,
+          not only how to model it.
+        </p>
+        <cite><a href="https://www.mlb.com/press-release/press-release-mlb-announces-abs-challenge-system-coming-to-the-major-leagues-beginning-in-the-2026-season">MLB.com, September 2025</a> &middot; <a href="https://www.espn.com/mlb/story/_/id/46357017/mlb-approves-robot-umpires-2026-part-challenge-system">ESPN, September 2025</a></cite>
       </div>
+
       <div class="note">
-        <h3>[[ Trend headline ]]</h3>
-        <p>[[ A business problem clubs have not solved. Where would you attack it? ]]</p>
-        <cite>[[ Source, publication, date ]]</cite>
+        <h3>Payroll may stop being elastic</h3>
+        <p>
+          The collective bargaining agreement expires at 11:59 p.m. on December 1, 2026, with a
+          salary cap as the central point of contention and a lockout widely expected. If a cap
+          arrives, roster construction stops being a spending question and becomes a constrained
+          allocation problem: fixed budget, competing assets, uncertain returns.
+        </p>
+        <p>
+          <strong>Where I fit:</strong> that is portfolio construction with a different asset class.
+          My finance minor and investment club work were spent valuing long-horizon positions under
+          constraint, which is the same arithmetic a capped front office would run on every contract.
+        </p>
+        <cite><a href="https://www.espn.com/mlb/story/_/id/47108752/mlb-labor-battle-cba-salary-cap-owners-players-union-mlbpa-faq-manfred">ESPN, December 2025</a> &middot; <a href="https://www.sportico.com/law/analysis/2026/mlb-lockout-looming-legal-issues-1234937370/">Sportico, July 2026</a></cite>
       </div>
+
       <div class="note">
-        <h3>[[ Trend headline ]]</h3>
-        <p>[[ A change in the competitive landscape: rules, labor, new buyers of baseball data, or the college-to-pro pipeline. ]]</p>
-        <cite>[[ Source, publication, date ]]</cite>
+        <h3>The hiring is not only at clubs</h3>
+        <p>
+          Listing data from spring 2026 showed betting and data-infrastructure companies posting more
+          open analytics roles than clubs did &mdash; FanDuel and Genius Sports each well ahead of any
+          single team. Club analytics groups remain small and competitive; the surrounding industry
+          that sells clubs their data is where volume is growing.
+        </p>
+        <p>
+          <strong>Where I fit:</strong> the vendors build the tools, but the clubs decide what matters.
+          Having worked at the collegiate, Triple-A, and Major League levels, I know what a coaching
+          staff will actually use &mdash; which is the harder half of the problem on either side of that line.
+        </p>
+        <cite><a href="https://analyticssportsjobs.com/blog/companies-hiring-most-sports-analysts-2026">Analytics Sports Jobs, May 2026</a></cite>
       </div>
     </div>
   </div>
@@ -887,7 +954,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
 
       <div class="resume__rail">Education</div>
       <div class="resume__block">
-        <div class="entry">
+        <div class="entry entry--edu edu--wf">
           <div class="entry__head">
             <span class="entry__role">M.S. Business Analytics &nbsp;&middot;&nbsp; Wake Forest University</span>
             <span class="entry__meta">May 2027</span>
@@ -896,7 +963,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
             <li>Sports Analytics concentration.</li>
           </ul>
         </div>
-        <div class="entry">
+        <div class="entry entry--edu edu--nd">
           <div class="entry__head">
             <span class="entry__role">B.A. Business Analytics &amp; History &nbsp;&middot;&nbsp; University of Notre Dame</span>
             <span class="entry__meta">May 2026</span>
