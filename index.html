@@ -370,7 +370,9 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
    RESUME
    ============================================================ */
 .resume{
-  display:grid;grid-template-columns:1fr 2.6fr;gap:2.5rem;
+  display:grid;grid-template-columns:1fr 2.6fr;
+  column-gap:2.5rem;row-gap:2.6rem;
+  align-items:start;
   margin-top:2.75rem;
 }
 .resume__rail{
@@ -379,7 +381,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
   border-top:1px solid var(--ink);padding-top:.9rem;
 }
 .resume__block{border-top:1px solid var(--line-l);padding-top:.9rem}
-.resume__block + .resume__rail,.resume__block + .resume__block{margin-top:2.2rem}
+
 .entry{margin-bottom:1.6rem}
 .entry:last-child{margin-bottom:0}
 .entry__head{
@@ -406,8 +408,8 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
   content:"";position:absolute;left:0;top:.35em;bottom:.2rem;
   width:3px;
 }
-.edu--wf::before{background:#9E7E38}   /* old gold */
-.edu--lad::before{background:#005A9C}  /* dodger blue */
+.edu--wf::before{background:linear-gradient(180deg,#000 0 50%,#9E7E38 50% 100%)}
+.edu--lad::before{background:linear-gradient(180deg,#005A9C 0 50%,#F5F5F0 50% 100%)}
 .edu--tac::before{background:linear-gradient(180deg,#0C2C56 0 50%,#B4262A 50% 100%)}
 .edu--nd::before{
   background:linear-gradient(180deg,#0C2340 0 50%,#C99700 50% 100%);
@@ -418,9 +420,9 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
    ============================================================ */
 .resume__actions{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 2rem}
 .pdfview{
-  margin:0;
-  width:100%;
-  height:min(88vh,1150px);
+  margin:0 auto;
+  width:min(900px,100%);
+  aspect-ratio:8.5/11;
   background:var(--chalk-2);
   border:1px solid var(--line-l);
   box-shadow:0 1px 3px rgba(20,28,34,.08);
@@ -501,8 +503,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
   .project__body{grid-template-columns:1fr;gap:1.1rem}
   .notes{grid-template-columns:1fr;gap:1.5rem}
   .resume{grid-template-columns:1fr;gap:1.2rem}
-  .resume__rail{margin-top:1.8rem}
-  .resume__block + .resume__rail{margin-top:1.8rem}
+  .resume{row-gap:1.5rem}
 }
 @media (max-width:900px){
   .hero__grid{grid-template-columns:1fr;gap:2rem}
@@ -510,8 +511,8 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
   .portrait::before{inset:auto -8px -8px auto}
 }
 @media (max-width:760px){
-  .pdfview{height:auto;min-height:0}
-  .pdfview object{height:300px}
+  .pdfview{aspect-ratio:auto;height:auto;min-height:0}
+  .pdfview object{height:420px}
   .nav__in{flex-wrap:wrap;padding-bottom:.35rem;gap:.5rem 1rem}
   .nav__links{
     order:3;width:100%;
@@ -901,7 +902,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
     </p>
 
     <figure class="pdfview">
-      <object data="resume.pdf#view=FitH&amp;toolbar=0" type="application/pdf"
+      <object data="resume.pdf#view=Fit&amp;toolbar=0&amp;navpanes=0&amp;scrollbar=0" type="application/pdf"
               aria-label="Resume, embedded PDF viewer">
         <div class="pdfview__fallback">
           <p>Your browser can&rsquo;t display the PDF inline.</p>
