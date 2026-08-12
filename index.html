@@ -202,6 +202,11 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
 }
 .nav__links a:hover{color:var(--chalk);border-bottom-color:var(--lamp)}
 .nav .btn{padding:.6rem 1rem;font-size:.72rem}
+.nav__actions{display:flex;gap:.5rem;align-items:center;flex-shrink:0}
+.btn--icon{gap:.45rem}
+.btn--icon svg{flex-shrink:0}
+.nav .btn--ghost{border-color:var(--line-d);color:var(--mute-d)}
+.nav .btn--ghost:hover{background:var(--chalk);color:var(--night);border-color:var(--chalk)}
 
 /* ============================================================
    HERO
@@ -353,6 +358,33 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
 .skills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.3rem}
 
 /* ============================================================
+   INLINE PDF VIEWER
+   ============================================================ */
+.resume__actions{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 2rem}
+.pdfview{
+  margin:0;
+  aspect-ratio:8.5/11;
+  max-height:78vh;
+  background:var(--chalk-2);
+  border:1px solid var(--line-l);
+  box-shadow:0 1px 3px rgba(20,28,34,.08);
+}
+.pdfview object{width:100%;height:100%;display:block}
+.pdfview__fallback{
+  height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1rem;text-align:center;padding:2rem;
+}
+.pdfview__fallback p{
+  margin:0;font-family:var(--mono);font-size:.8rem;
+  letter-spacing:.04em;color:var(--mute-l);
+}
+.pdfview__note{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;
+  color:var(--mute-l);margin:.9rem 0 0;
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 .foot{background:var(--night);color:var(--chalk);padding:clamp(3rem,6vw,4.5rem) 0 2.5rem}
@@ -392,7 +424,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
 }
 .portrait img{
   width:100%;
-  height: auto; 
+  height:auto;
   border:1px solid var(--line-d);
   filter:saturate(.92) contrast(1.02);
 }
@@ -422,7 +454,11 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
   .portrait::before{inset:auto -8px -8px auto}
 }
 @media (max-width:760px){
+  .pdfview{aspect-ratio:auto;height:auto;min-height:0}
+  .pdfview object{height:260px}
   .nav__links{display:none}
+  .nav__actions .btn--icon span:last-child{display:none}
+  .nav__actions .btn--icon{padding:.6rem .75rem}
   .statline{grid-template-columns:repeat(2,1fr)}
   .statline > div{border-right:1px solid var(--line-d);padding-left:0}
   .band--light .statline > div,.band--paper .statline > div{border-color:var(--line-l)}
@@ -471,7 +507,16 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
       <li><a href="#market">Market</a></li>
       <li><a href="#resume">Resume</a></li>
     </ul>
-    <a class="btn" href="resume.pdf" download><span>Resume PDF</span></a>
+    <div class="nav__actions">
+      <a class="btn btn--ghost btn--icon" href="https://www.linkedin.com/in/joey-vaughan/"
+         target="_blank" rel="noopener" aria-label="LinkedIn profile">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+          <path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9h4v12H3zM10 9h3.8v1.65h.05c.53-.95 1.83-1.95 3.76-1.95C21.4 8.7 22 11.1 22 14.2V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21h-4z"/>
+        </svg>
+        <span>LinkedIn</span>
+      </a>
+      <a class="btn" href="resume.pdf" download><span>Resume PDF</span></a>
+    </div>
   </div>
 </nav>
 
@@ -738,7 +783,21 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
   <div class="wrap reveal">
     <p class="eyebrow">Resume</p>
     <h2>The short version</h2>
-    <p><a class="btn" href="resume.pdf" download><span>Download PDF</span></a></p>
+    <p class="resume__actions">
+      <a class="btn" href="resume.pdf" download><span>Download PDF</span></a>
+      <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener"><span>Open in new tab</span></a>
+    </p>
+
+    <figure class="pdfview">
+      <object data="resume.pdf#view=FitH&amp;toolbar=0" type="application/pdf"
+              aria-label="Resume, embedded PDF viewer">
+        <div class="pdfview__fallback">
+          <p>Your browser can&rsquo;t display the PDF inline.</p>
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener"><span>Open the PDF</span></a>
+        </div>
+      </object>
+    </figure>
+    <p class="pdfview__note">One page. The same content is laid out below as text, formatted for reading on any screen.</p>
 
     <div class="resume">
       <div class="resume__rail">Experience</div>
