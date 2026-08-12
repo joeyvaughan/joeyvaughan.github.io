@@ -64,6 +64,7 @@ a{color:inherit}
    PRIMITIVES
    ============================================================ */
 .wrap{width:var(--wrap);margin-inline:auto}
+.wrap--wide{width:min(1240px,94vw)}
 
 .band{padding:clamp(3.75rem,8.5vw,7rem) 0}
 .band--light{background:var(--chalk);color:var(--ink)}
@@ -406,6 +407,8 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
   width:3px;
 }
 .edu--wf::before{background:#9E7E38}   /* old gold */
+.edu--lad::before{background:#005A9C}  /* dodger blue */
+.edu--tac::before{background:linear-gradient(180deg,#0C2C56 0 50%,#B4262A 50% 100%)}
 .edu--nd::before{
   background:linear-gradient(180deg,#0C2340 0 50%,#C99700 50% 100%);
 }
@@ -416,8 +419,8 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
 .resume__actions{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 2rem}
 .pdfview{
   margin:0;
-  aspect-ratio:8.5/11;
-  max-height:78vh;
+  width:100%;
+  height:min(88vh,1150px);
   background:var(--chalk-2);
   border:1px solid var(--line-l);
   box-shadow:0 1px 3px rgba(20,28,34,.08);
@@ -507,8 +510,8 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
   .portrait::before{inset:auto -8px -8px auto}
 }
 @media (max-width:760px){
-  .pdfview{aspect-ratio:auto;height:auto;min-height:0}
-  .pdfview object{height:260px}
+  .pdfview{height:auto;min-height:0}
+  .pdfview object{height:300px}
   .nav__in{flex-wrap:wrap;padding-bottom:.35rem;gap:.5rem 1rem}
   .nav__links{
     order:3;width:100%;
@@ -889,9 +892,9 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
 
 <!-- ========================= RESUME ========================= -->
 <section class="band band--light" id="resume">
-  <div class="wrap reveal">
-    <p class="eyebrow">Resume</p>
-    <h2>The Short Version</h2>
+  <div class="wrap wrap--wide reveal">
+    <p class="eyebrow">Key Overview</p>
+    <h2>Resume</h2>
     <p class="resume__actions">
       <a class="btn" href="resume.pdf" download><span>Download PDF</span></a>
       <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener"><span>Open in new tab</span></a>
@@ -911,7 +914,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
     <div class="resume">
       <div class="resume__rail">Experience</div>
       <div class="resume__block">
-        <div class="entry">
+        <div class="entry entry--edu edu--wf">
           <div class="entry__head">
             <span class="entry__role">Graduate Baseball Analyst &nbsp;&middot;&nbsp; Wake Forest Baseball</span>
             <span class="entry__meta">Jul 2026 &ndash; Present</span>
@@ -921,7 +924,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
             <li>Analyze statistics in SQL and R to prepare scouting reports, support recruiting evaluations, and inform player development.</li>
           </ul>
         </div>
-        <div class="entry">
+        <div class="entry entry--edu edu--lad">
           <div class="entry__head">
             <span class="entry__role">Baseball Strategy &amp; Information Intern &nbsp;&middot;&nbsp; Los Angeles Dodgers</span>
             <span class="entry__meta">May &ndash; Aug 2025</span>
@@ -931,7 +934,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
             <li>Trained Trajekt to prepare hitters for opposing pitchers, and recorded bullpens and simulated games via Trackman.</li>
           </ul>
         </div>
-        <div class="entry">
+        <div class="entry entry--edu edu--nd">
           <div class="entry__head">
             <span class="entry__role">Varsity Baseball Student Manager &nbsp;&middot;&nbsp; Notre Dame Baseball</span>
             <span class="entry__meta">Aug 2023 &ndash; May 2026</span>
@@ -941,7 +944,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
             <li>Organized practices, coordinated equipment, fed pitching machines, and caught bullpens.</li>
           </ul>
         </div>
-        <div class="entry">
+        <div class="entry entry--edu edu--tac">
           <div class="entry__head">
             <span class="entry__role">Public Relations Intern &nbsp;&middot;&nbsp; Tacoma Rainiers (Mariners AAA)</span>
             <span class="entry__meta">Summers 2019 &ndash; 2024</span>
@@ -979,7 +982,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
       <div class="resume__rail">Technical</div>
       <div class="resume__block">
         <div class="entry">
-          <div class="entry__head"><span class="entry__role">Languages &amp; visualization</span></div>
+          <div class="entry__head"><span class="entry__role">Languages &amp; Visualization</span></div>
           <div class="skills">
             <span class="tag">R</span><span class="tag">SQL</span><span class="tag">Python</span>
             <span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">Excel</span>
@@ -993,7 +996,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
           </div>
         </div>
         <div class="entry">
-          <div class="entry__head"><span class="entry__role">Baseball technology</span></div>
+          <div class="entry__head"><span class="entry__role">Baseball Technology</span></div>
           <div class="skills">
             <span class="tag">Trackman</span><span class="tag">Trajekt</span><span class="tag">Edgertronic</span>
             <span class="tag">KinaTrax</span><span class="tag">Rapsodo</span><span class="tag">BATS</span>
