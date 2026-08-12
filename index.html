@@ -730,7 +730,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
         <div class="project__body">
           <div>
             <h4>Context</h4>
-            <p>&ldquo;Curveball&rdquo; is one label covering pitches that behave nothing alike. If the groupings are real, then evaluating a curveball against the league average curveball is comparing a pitch to a category that does not exist.</p>
+            <p>Curveballs were the second-most thrown off-speed pitch of the 2024 season, and the only common pitch built primarily on downward movement. Pitch-design models like Stuff+ grade pitches in isolation; we wanted to know which curveball traits actually produce run value, measured against each pitcher&rsquo;s own fastball.</p>
           </div>
           <div>
             <h4>My role</h4>
@@ -743,8 +743,8 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
         </div>
         <dl class="statline statline--sm">
           <div><dt>Top cluster RV/100</dt><dd>0.804</dd></div>
-          <div><dt>Features clustered</dt><dd>9</dd></div>
-          <div><dt>LH break gap</dt><dd>22.7 in</dd></div>
+          <div><dt>Variables</dt><dd>9</dd></div>
+          <div><dt>Clusters</dt><dd>8</dd></div>
         </dl>
         <div class="project__links">
           <a href="https://github.com/joeyvaughan/K-Means-Exploration">Code (R Markdown)</a>
@@ -756,31 +756,32 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
         <div class="project__head">
           <div>
             <h3>Predicting NFL spreads and money lines</h3>
-            <p class="entry__meta">2010&ndash;2025 play-by-play &nbsp;&middot;&nbsp; four model families compared</p>
+            <p class="entry__meta">2010&ndash;2025 play-by-play &nbsp;&middot;&nbsp; R &nbsp;&middot;&nbsp; team of five</p>
           </div>
           <span class="tag">Predictive modeling</span>
         </div>
         <div class="project__body">
           <div>
             <h4>Context</h4>
-            <p>Betting markets are the hardest available benchmark for a forecasting model: the line already contains the crowd&rsquo;s information, so beating it means finding something the market has not priced.</p>
+            <p>Sportsbooks set the most rigorously tested forecasts in sports. We asked whether a model built on public play-by-play data could predict NFL point differentials more accurately than DraftKings &mdash; a benchmark that is unusually honest, because the market has already priced in everything widely known.</p>
           </div>
           <div>
             <h4>My role</h4>
-            <p>Sole analyst. Built and compared linear regression, lasso, random forest, and XGBoost against fifteen seasons of play-by-play and schedule data, then selected XGBoost on out-of-sample performance.</p>
+            <p>One of five. I ran exploratory analysis on conversion rates and situational stats, built the random forest baseline the final model was measured against, and co-wrote the report. The team engineered 341 rolling-average features and settled on a tuned XGBoost.</p>
           </div>
           <div>
             <h4>Outcome</h4>
-            <p>The selected model picked game outcomes and spreads correctly roughly 75% of the time. [[ Add one line specifying what that figure was measured on &mdash; which seasons were held out, and whether the rate is against the spread or on the money line. ]]</p>
+            <p>Trained on 2010&ndash;2022 and tested on held-out 2023&ndash;2025 seasons, the model hit 77.4% against the spread and 74.1% on the money line across 594 simulated wagers, landing closer to the true point differential than the DraftKings line 65.8% of the time. SHAP attribution put defensive and special-teams variables at the top &mdash; sack rate, opponent plays, net punt yards &mdash; ahead of the offensive metrics we expected.</p>
           </div>
         </div>
         <dl class="statline statline--sm">
-          <div><dt>Seasons</dt><dd>2010&ndash;2025</dd></div>
-          <div><dt>Models compared</dt><dd>4</dd></div>
-          <div><dt>Hit rate</dt><dd>~75%</dd></div>
+          <div><dt>Against the spread</dt><dd>77.4%</dd></div>
+          <div><dt>Derived variables</dt><dd>341</dd></div>
+          <div><dt>Test RMSE</dt><dd>11.06</dd></div>
         </dl>
         <div class="project__links">
-          <a href="https://github.com/joeyvaughan/Modeling-Exploration">Code &amp; output</a>
+          <a href="https://github.com/joeyvaughan/XGBoost-NFL-Prediction-Model">Code (R Markdown)</a>
+          <a href="https://github.com/joeyvaughan/XGBoost-NFL-Prediction-Model/blob/main/Project%20Final%20Report.pdf">Full report (PDF)</a>
         </div>
       </article>
 
