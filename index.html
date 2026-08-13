@@ -468,7 +468,20 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
    ============================================================ */
 .foot{background:var(--night);color:var(--chalk);padding:clamp(3rem,6vw,4.5rem) 0 2.5rem}
 .foot h2{margin-bottom:1.2rem}
-.foot__links{display:flex;flex-wrap:wrap;gap:1.5rem;margin:1.8rem 0 3rem;padding:0;list-style:none}
+.contact{
+  display:flex;flex-wrap:wrap;gap:.9rem 3rem;
+  margin:2rem 0 0;
+  border-top:1px solid var(--line-d);
+  padding-top:1.4rem;
+}
+.contact dt{
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--lamp);margin-bottom:.35rem;
+}
+.contact dd{margin:0;font-size:1.05rem}
+.contact dd a{text-decoration:none;border-bottom:1px solid var(--line-d)}
+.contact dd a:hover{border-bottom-color:var(--lamp)}
+.foot__links{display:flex;flex-wrap:wrap;gap:1.5rem;margin:1.6rem 0 3rem;padding:0;list-style:none}
 .foot__links a{
   font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;
   text-decoration:none;border-bottom:1px solid var(--lamp);padding-bottom:.2rem;
@@ -621,10 +634,11 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
     <p class="eyebrow">Baseball Strategy &amp; Information</p>
     <h1>Joey Vaughan</h1>
     <p class="lede">
-      I model baseball data, and I have spent four seasons collecting it by hand &mdash;
+      I model baseball data, and I have spent multiple seasons collecting it by hand &mdash;
       Trackman units, Edgertronic cameras, Rapsodo, KinaTrax. Currently a graduate
-      analyst with Wake Forest Baseball and an MSBA candidate in sports analytics,
-      after a summer in Baseball Strategy and Information with the Los Angeles Dodgers.
+      analyst with Wake Forest Baseball and an MSBA candidate in sports analytics, with
+      experience at the collegiate and professional levels, including a summer with the
+      Los Angeles Dodgers.
     </p>
     <div class="hero__cta">
       <a class="btn" href="#work"><span>See the work</span></a>
@@ -712,8 +726,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
     <h2>Ninety Seconds, in My Own Voice</h2>
     <div class="prose">
       <p style="color:#D3D9DE">
-        Who I am, how I got from the bullpen to the front office, and the two markets I
-        am pointing this skill set at.
+        Who I am and where I hope to go.
       </p>
     </div>
 
@@ -822,7 +835,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
       <article class="project reveal">
         <div class="project__head">
           <div>
-            <h3>Baseball Strategy and Development, Los Angeles Dodgers</h3>
+            <h3>Baseball Strategy and Information, Los Angeles Dodgers</h3>
             <p class="entry__meta">May &ndash; August 2025 &nbsp;&middot;&nbsp; SQL, R, Trajekt, Trackman</p>
           </div>
           <span class="tag">Front office</span>
@@ -1047,8 +1060,12 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
       people who decide. I am always open to discussing these career paths and would love
       to connect.
     </p>
+    <dl class="contact">
+      <div><dt>Email</dt><dd><a href="mailto:vaugjp26@wfu.edu">vaugjp26@wfu.edu</a></dd></div>
+      <div><dt>Phone</dt><dd><a href="tel:+12532254521">(253) 225-4521</a></dd></div>
+    </dl>
+
     <ul class="foot__links">
-      <li><a href="mailto:vaugjp26@wfu.edu">Email</a></li>
       <li><a href="https://www.linkedin.com/in/joey-vaughan/">LinkedIn</a></li>
       <li><a href="https://github.com/joeyvaughan">GitHub</a></li>
       <li><a href="resume.pdf" download>Resume</a></li>
