@@ -293,7 +293,14 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
 /* ============================================================
    FIELD PHOTO
    ============================================================ */
-.fieldshot{margin:2.6rem 0 0;max-width:640px}
+.lifecycle{
+  display:grid;
+  grid-template-columns:1.35fr .95fr;
+  gap:clamp(2rem,4vw,3.25rem);
+  align-items:start;
+}
+.lifecycle .prose{max-width:none}
+.fieldshot{margin:.4rem 0 0;max-width:none}
 .fieldshot img{
   width:100%;height:auto;
   border:1px solid var(--line-l);
@@ -514,6 +521,8 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
    RESPONSIVE
    ============================================================ */
 @media (max-width:900px){
+  .lifecycle{grid-template-columns:1fr;gap:1.75rem}
+  .fieldshot{max-width:560px}
   .project__body{grid-template-columns:1fr;gap:1.1rem}
   .notes{grid-template-columns:1fr;gap:1.5rem}
   .resume{grid-template-columns:1fr;gap:1.2rem}
@@ -634,7 +643,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
         <span>Notre Dame Baseball <em>2023&ndash;26</em></span>
       </dd></div>
       <div><dt>Key skills</dt><dd>R &middot; SQL &middot; Python</dd></div>
-      <div><dt>MSBA</dt><dd>Sports Analytics, 2027</dd></div>
+      <div><dt>MSBA</dt><dd>Concentration in Sports Analytics<br><span class="statline__sub">Wake Forest, 2027</span></dd></div>
     </dl>
   </div>
 </header>
@@ -644,6 +653,7 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
   <div class="wrap reveal">
     <p class="eyebrow">How I work</p>
     <h2>Experienced with the Full Data Lifecycle: From Collection to Communication</h2>
+    <div class="lifecycle">
     <div class="prose">
       <p>
         Many analysts are skilled with code, able to manipulate and transform data to glean
@@ -664,11 +674,11 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
         sectors of business, which is where the second half of my background points.
       </p>
     </div>
-
     <figure class="fieldshot">
       <img src="dugout.jpg" alt="Joey Vaughan in the dugout at Dodger Stadium" width="1400" height="1307" loading="lazy">
       <figcaption>Dodger Stadium, summer 2025 &mdash; Baseball Strategy &amp; Information.</figcaption>
     </figure>
+    </div>
 
     <div class="map">
       <div class="map__row">
@@ -944,16 +954,6 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
             <li>Analyze statistics in SQL and R to prepare scouting reports, support recruiting evaluations, and inform player development.</li>
           </ul>
         </div>
-        <div class="entry entry--edu edu--lad">
-          <div class="entry__head">
-            <span class="entry__role">Baseball Strategy &amp; Information Intern &nbsp;&middot;&nbsp; Los Angeles Dodgers</span>
-            <span class="entry__meta">May &ndash; Aug 2025</span>
-          </div>
-          <ul>
-            <li>Completed scouting reports and ad-hoc projects in SQL and R for coaching staff and front office personnel.</li>
-            <li>Trained Trajekt to prepare hitters for opposing pitchers, and recorded bullpens and simulated games via Trackman.</li>
-          </ul>
-        </div>
         <div class="entry entry--edu edu--nd">
           <div class="entry__head">
             <span class="entry__role">Varsity Baseball Student Manager &nbsp;&middot;&nbsp; Notre Dame Baseball</span>
@@ -962,6 +962,16 @@ h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:110%;letter-spacing:-.01em
           <ul>
             <li>Operated Rapsodo, Trackman, Edgertronic cameras, and BATS in practice and games to capture data for player evaluation modeling and report generation.</li>
             <li>Organized practices, coordinated equipment, fed pitching machines, and caught bullpens.</li>
+          </ul>
+        </div>
+        <div class="entry entry--edu edu--lad">
+          <div class="entry__head">
+            <span class="entry__role">Baseball Strategy &amp; Information Intern &nbsp;&middot;&nbsp; Los Angeles Dodgers</span>
+            <span class="entry__meta">May &ndash; Aug 2025</span>
+          </div>
+          <ul>
+            <li>Completed scouting reports and ad-hoc projects in SQL and R for coaching staff and front office personnel.</li>
+            <li>Trained Trajekt to prepare hitters for opposing pitchers, and recorded bullpens and simulated games via Trackman.</li>
           </ul>
         </div>
         <div class="entry entry--edu edu--tac">
